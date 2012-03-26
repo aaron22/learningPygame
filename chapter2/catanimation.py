@@ -3,7 +3,7 @@ from pygame.locals import *
 
 pygame.init()
 
-FPS = 1 # frames per second setting
+FPS = 30 # frames per second setting
 fpsClock = pygame.time.Clock()
 
 # set up the window
@@ -22,19 +22,19 @@ while True: # main game loop
     # get the cat's new postion
     if direction == 'right':
         catx += 5
-        if catx == 280:
+        if catx == 320:
             direction = 'down'
     elif direction == 'down':
         caty += 5
-        if caty == 220:
+        if caty == 260:
             direction = 'left'
     elif direction == 'left':
         catx -= 5
-        if catx == 10:
+        if catx == -20:
             direction = 'up'
     elif direction == 'up':
         caty -= 5
-        if caty == 10:
+        if caty == -20:
             direction = 'right'
     # put that cat on the display at its new position
     DISPLAYSURF.blit(catImg, (catx, caty))
@@ -46,5 +46,4 @@ while True: # main game loop
 
     pygame.display.update()
     fpsClock.tick(FPS)
-    FPS += 1
 
